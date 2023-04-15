@@ -1,0 +1,625 @@
+// sortBars() {// function to directly sort the array without animation
+    // //    this.state.arr.sort((a,b)=>a-b);
+    //     this.setState({arr:this.state.arr.sort((a,b)=>a-b)});
+    //     console.log(this.state.arr);
+        
+    //   }
+
+  //Selection Sort
+      // swap(copy,xp,yp){
+      //   console.log("Swap");
+      //   var temp=copy[xp];
+      // copy[xp]=copy[yp];
+      //  copy[yp]=temp;
+      // }
+      // SelectionSort(){
+      //   console.log("Selecton Sort");
+      //  var i,j,min_idx;
+      //  var n=this.state.num;
+      //  const copy=[...this.state.arr];
+      //  for(i=0;i<n-1;i++){
+      //   min_idx=i;
+      //   this.colorchange=true;
+      //   this.setState({arr:copy});
+      //   for(j=i;j<n;j++)
+      //       if(copy[j]<copy[min_idx])
+      //       min_idx=j;
+      //       // this.swap(copy,min_idx,i);
+      //       var temp=copy[min_idx];
+      //       copy[min_idx]=copy[i];
+      //       copy[i]=temp;
+      //       this.setState({arr:copy});
+      //  }
+      // console.log(this.state.arr);
+      // }
+
+      // async SelectionSort() {
+      //  let start= performance.now();
+      //   console.log("Selection Sort");
+      //   var i, j, min_idx;
+      //   var n = this.state.num;
+      //   const copy = [...this.state.arr];
+      //   for (i = 0; i < n - 1; i++) {
+      //     min_idx = i;
+      //     this.setState({ arr: copy, selected: i }); // Set selected element for highlighting
+      //     await new Promise(resolve => setTimeout(resolve, 5)); // Wait for 500 milliseconds
+      //     for (j = i + 1; j < n; j++) {
+      //       if (copy[j] < copy[min_idx]) {
+      //         min_idx = j;
+      //       }
+      //       this.setState({ arr: copy, selected: j }); // Set selected element for highlighting
+      //       await new Promise(resolve => setTimeout(resolve, 5)); // Wait for 500 milliseconds
+      //     }
+      //     // Swap the minimum element with the first element of the unsorted part of the array
+      //     var temp = copy[min_idx];
+      //     copy[min_idx] = copy[i];
+      //     copy[i] = temp;
+      //     this.setState({ arr: copy, selected: -1 }); // Clear selected element
+      //     await new Promise(resolve => setTimeout(resolve, 5)); // Wait for 500 milliseconds
+      //   }
+      //   let end=performance.now();
+      //   // console.log(this.state.arr);
+      //   console.log(end-start);
+      // }
+      
+      //Bubble Sort
+      // BubbleSort(){
+      //   var i,j,temp;
+      //   const copy=[...this.state.arr];
+      //   var n=this.state.num;
+      //   var swapped;
+      //   for(i=0;i<n-1;i++){
+      //       swapped=false;
+      //       for(j=0;j<n-i-1;j++){
+      //           if(copy[j]>copy[j+1]){
+      //               temp=copy[j];
+      //               copy[j]=copy[j+1];
+      //               copy[j+1]=temp;
+      //               swapped=true;
+      //           }
+      //       }
+      //       if(swapped==false)
+      //       break;
+      //   }
+      //   this.setState({arr:copy});
+      //   console.log(this.state.arr);
+      // }
+      // bubbleSort() {
+      //   const arr = [...this.state.arr];
+      //   const len = arr.length;
+      //   let animations = [];
+      
+      //   for (let i = 0; i < len; i++) {
+      //     for (let j = 0; j < len - i - 1; j++) {
+      //       if (arr[j] > arr[j + 1]) {
+      //         // Swap elements
+      //         let temp = arr[j];
+      //         arr[j] = arr[j + 1];
+      //         arr[j + 1] = temp;
+      
+      //         // Add animation data to array
+      //         animations.push({
+      //           comparison: [j, j + 1],
+      //           swap: [j, j + 1],
+      //           arr: [...arr],
+      //         });
+      //       } else {
+      //         // Add animation data to array for comparison only
+      //         animations.push({
+      //           comparison: [j, j + 1],
+      //           swap: [],
+      //           arr: [...arr],
+      //         });
+      //       }
+      //     }
+      //   }
+      
+      //   // Animate the sort
+      //   const animateSort = async (animations) => {
+      //     const elements = document.getElementsByClassName("array-bar");
+      //     for (let i = 0; i < animations.length; i++) {
+      //       const { comparison, swap, arr } = animations[i];
+      //       const [firstBarIdx, secondBarIdx] = comparison;
+      
+      //       // Change color to indicate comparison
+      //       elements[firstBarIdx].style.backgroundColor = "red";
+      //       elements[secondBarIdx].style.backgroundColor = "red";
+      
+      //       // Delay to make comparison clear
+      //       await this.sleep(50);
+      
+      //       // Change color back to original
+      //       elements[firstBarIdx].style.backgroundColor = "#a4c3d3";
+      //       elements[secondBarIdx].style.backgroundColor = "#a4c3d3";
+      
+      //       // Swap the elements if necessary
+      //       if (swap.length) {
+      //         const [firstSwapIdx, secondSwapIdx] = swap;
+      //         const firstBarHeight = `${arr[firstSwapIdx]}%`;
+      //         const secondBarHeight = `${arr[secondSwapIdx]}%`;
+      
+      //         // Animate the swap
+      //         elements[firstSwapIdx].style.height = secondBarHeight;
+      //         elements[secondSwapIdx].style.height = firstBarHeight;
+      
+      //         // Update the array with the swapped elements
+      //         [arr[firstSwapIdx], arr[secondSwapIdx]] = [arr[secondSwapIdx], arr[firstSwapIdx]];
+      //       }
+      //     }
+      
+      //     // Set the state with the sorted array
+      //     this.setState({ arr });
+      //   };
+      
+      //   animateSort(animations);
+      // }
+      
+      // BubbleSort() {
+      //   const copy = [...this.state.arr];
+      //   const n = copy.length;
+      //   let i, j;
+      //   let isSwapped = false;
+      
+      //   for (i = 0; i < n - 1; i++) {
+      //     isSwapped = false;
+      //     for (j = 0; j < n - i - 1; j++) {
+      //       if (copy[j] > copy[j + 1]) {
+      //         const temp = copy[j];
+      //         copy[j] = copy[j + 1];
+      //         copy[j + 1] = temp;
+      //         isSwapped = true;
+      //       }
+      //     }
+      //     if (!isSwapped) break;
+      
+      //     setTimeout(() => {
+      //       this.setState({ arr: copy });
+      //     }, 100);
+      //   }
+      // }
+      
+      //Quick Sort
+      //  QuickSort(arr) {
+      //   if (arr.length <= 1) {
+      //     return arr;
+      //   }
+      
+      //   const pivot = arr[0];
+      //   const left = [];
+      //   const right = [];
+      
+      //   for (let i = 1; i < arr.length; i++) {
+      //     if (arr[i] < pivot) {
+      //       left.push(arr[i]);
+      //     } else {
+      //       right.push(arr[i]);
+      //     }
+      //   }
+      
+      //   return [...this.QuickSort(left), pivot, ...this.QuickSort(right)];
+      // }
+      // quicksort(){
+      //   var copy=this.QuickSort([...this.state.arr]);
+      //   this.setState({arr:copy});
+      //   console.log(this.state.arr);
+      // }
+      // quicksort() {
+      //   const animations = []; // to store the animations
+      //   const sortedArr = this.quickSortHelper([...this.state.arr], 0, this.state.arr.length - 1, animations);
+        
+      //   // execute the animations one by one with delays to show sorting process
+      //   for (let i = 0; i < animations.length; i++) {
+      //     const arrayBars = document.getElementsByClassName('array-bar');
+      //     const [barIndex, newHeight, color] = animations[i];
+          
+      //     setTimeout(() => {
+      //       arrayBars[barIndex].style.height = `${newHeight}px`;
+      //       arrayBars[barIndex].style.backgroundColor = color;
+      //     }, i * 10);
+      //   }
+        
+      //   this.setState({ arr: sortedArr });
+      // }
+      
+      // quickSortHelper(arr, left, right, animations) {
+      //   if (left >= right) return arr;
+        
+      //   const index = this.partition(arr, left, right, animations);
+      //   this.quickSortHelper(arr, left, index - 1, animations);
+      //   this.quickSortHelper(arr, index + 1, right, animations);
+        
+      //   return arr;
+      // }
+      
+      // partition(arr, left, right, animations) {
+      //   const pivotIndex = right;
+      //   let i = left;
+      //   let j = left;
+        
+      //   while (j < right) {
+      //     if (arr[j] < arr[pivotIndex]) {
+      //       this.swap(arr, i, j, animations);
+      //       i++;
+      //     }
+      //     j++;
+      //   }
+        
+      //   this.swap(arr, i, pivotIndex, animations);
+      //   return i;
+      // }
+      
+      // swap(arr, i, j, animations) {
+      //   const temp = arr[i];
+      //   arr[i] = arr[j];
+      //   arr[j] = temp;
+        
+      //   animations.push([i, arr[i], 'red']);
+      //   animations.push([j, arr[j], 'red']);
+      //   animations.push([i, arr[i], 'blue']);
+      //   animations.push([j, arr[j], 'blue']);
+      // }
+
+      
+
+  QuickSort(arr) {
+    if (arr.length <= 1) {
+      return arr;
+    }
+
+    const pivot = arr[0];
+    const left = [];
+    const right = [];
+
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] < pivot) {
+        left.push(arr[i]);
+      } else {
+        right.push(arr[i]);
+      }
+    }
+
+    return [...this.QuickSort(left), pivot, ...this.QuickSort(right)];
+  }
+      animateQuickSort() {
+        const animations = [];
+        const sortedArr = this.QuickSort([...this.state.arr], animations);
+        const arrayBars = document.getElementsByClassName('array-bar');
+    
+        for (let i = 0; i < animations.length; i++) {
+          const [pivotIndex, leftIndex, rightIndex] = animations[i];
+          const pivotBarStyle = arrayBars[pivotIndex].style;
+          const leftBarStyle = arrayBars[leftIndex].style;
+          const rightBarStyle = arrayBars[rightIndex].style;
+    
+          // Color pivot bar
+          setTimeout(() => {
+            pivotBarStyle.backgroundColor = 'green';
+          }, i * 1);
+    
+          // Color left and right bars
+          setTimeout(() => {
+            leftBarStyle.backgroundColor = 'green';
+            rightBarStyle.backgroundColor = 'green';
+          }, i * 100 + 0.5);
+    
+          // Swap left and right bars
+          setTimeout(() => {
+            const tempHeight = leftBarStyle.height;
+            leftBarStyle.height = rightBarStyle.height;
+            rightBarStyle.height = tempHeight;
+          }, i * 100 + 1);
+    
+          // Reset colors
+          setTimeout(() => {
+            pivotBarStyle.backgroundColor = 'blue';
+            leftBarStyle.backgroundColor = 'blue';
+            rightBarStyle.backgroundColor = 'blue';
+          }, i * 100 + 5);
+        }
+    
+        setTimeout(() => {
+          this.setState({ arr: sortedArr });
+        }, animations.length * 1);
+      }
+      
+
+      //Merge Sort
+    //   merge(array,l,m,r){
+    //    var n1=m-l+1;
+    //    var n2=r-m;
+    //    const L = new Array(n1);
+    //    const R = new Array(n2);
+    //    for(var i=0;i<n1;i++)
+    //       L[i]=array[l+i];
+    //    for(var j=0;j<n2;j++)
+    //       R[j]=array[m+1+j];
+          
+    //       var i=0;
+    //       var j=0;
+    //       var k=l;
+    //       while(i<n1 && j<n2){
+    //         if(L[i]<=R[j]){
+    //             array[k]=L[i];
+    //             i++;
+    //         }
+    //         else{
+    //             array[k]=R[j];
+    //             j++;
+    //         }
+    //       k++;}   
+    //       while(i<n1){
+    //         array[k]=L[i];
+    //         i++;
+    //         k++;
+    //       }
+    //       while(j<n2){
+    //         array[k]=R[j];
+    //         j++;
+    //         k++;
+    //       }
+    // }
+    //   MergeSort(copy,l,r){
+    //     if(l>=r){
+    //         return;
+    //     }
+    //     var m=l+parseInt((r-l)/2);
+    //     this.MergeSort(copy,l,m);
+    //     this.MergeSort(copy,m+1,r);
+    //     this.merge(copy,l,m,r);
+    //     console.log(copy); 
+    //     this.setState({arr:copy});
+    //   }
+
+  //   async mergeSortAnimation(array, l, r) {
+  //     if (l >= r) {
+  //         return;
+  //     }
+  
+  //     const m = l + parseInt((r - l) / 2);
+  //     await this.mergeSortAnimation(array, l, m);
+  //     await this.mergeSortAnimation(array, m + 1, r);
+  //     await this.mergeAnimation(array, l, m, r);
+  
+  //     this.setState({ arr: array });
+  // }
+  
+  // async mergeAnimation(array, l, m, r) {
+  //     const n1 = m - l + 1;
+  //     const n2 = r - m;
+  //     const L = new Array(n1);
+  //     const R = new Array(n2);
+  //     for (let i = 0; i < n1; i++)
+  //         L[i] = array[l + i];
+  //     for (let j = 0; j < n2; j++)
+  //         R[j] = array[m + 1 + j];
+  
+  //     let i = 0, j = 0, k = l;
+  //     while (i < n1 && j < n2) {
+  //         if (L[i] <= R[j]) {
+  //             array[k] = L[i];
+  //             i++;
+  //         }
+  //         else {
+  //             array[k] = R[j];
+  //             j++;
+  //         }
+  //         k++;
+  //         await this.sleep(50);
+  //         this.setState({ arr: array });
+  //     }
+  
+  //     while (i < n1) {
+  //         array[k] = L[i];
+  //         i++;
+  //         k++;
+  //         await this.sleep(50);
+  //         this.setState({ arr: array });
+  //     }
+  
+  //     while (j < n2) {
+  //         array[k] = R[j];
+  //         j++;
+  //         k++;
+  //         await this.sleep(50);
+  //         this.setState({ arr: array });
+  //     }
+  // }
+  async animateMergeSort() {
+    const arr = [...this.state.arr]; // copy the original array
+    await this.mergeSortHelper(arr, 0, arr.length - 1); // call the merge sort function
+    this.setState({ arr }); // update the state with the sorted array
+  }
+  
+  async mergeSortHelper(arr, l, r) {
+    if (l >= r) {
+      return;
+    }
+  
+    const m = l + Math.floor((r - l) / 2); // calculate the midpoint
+  
+    // recursively call mergeSortHelper on left and right halves
+    await this.mergeSortHelper(arr, l, m);
+    await this.mergeSortHelper(arr, m + 1, r);
+  
+    // merge the two halves
+    await this.merge(arr, l, m, r);
+  }
+  
+  async merge(arr, l, m, r) {
+    const n1 = m - l + 1;
+    const n2 = r - m;
+    const L = new Array(n1);
+    const R = new Array(n2);
+  
+    // copy elements into left and right sub-arrays
+    for (let i = 0; i < n1; i++) {
+      L[i] = arr[l + i];
+    }
+    for (let j = 0; j < n2; j++) {
+      R[j] = arr[m + j + 1];
+    }
+  
+    let i = 0;
+    let j = 0;
+    let k = l;
+  
+    // merge the two sub-arrays
+    while (i < n1 && j < n2) {
+      if (L[i] <= R[j]) {
+        arr[k] = L[i];
+        i++;
+      } else {
+        arr[k] = R[j];
+        j++;
+      }
+      k++;
+      await this.sleep(5); // wait for 100 milliseconds before continuing
+      this.setState({ arr }); // update the state to display the changes
+    }
+  
+    // copy any remaining elements from the left or right sub-arrays
+    while (i < n1) {
+      arr[k] = L[i];
+      i++;
+      k++;
+      await this.sleep(5);
+      this.setState({ arr });
+    }
+    while (j < n2) {
+      arr[k] = R[j];
+      j++;
+      k++;
+      await this.sleep(5);
+      this.setState({ arr });
+    }
+  }
+  
+  // helper function to wait for a given amount of time
+  sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+     
+
+      //Insertion sort
+      // InsertionSort(){
+      //   const array=[...this.state.arr];
+      //   var n=this.state.num;
+      //   let i,key,j;
+      //   for(i=1;i<n;i++){
+      //     key=array[i];
+      //     j=i-1;
+      //     while(j>=0 && array[j]>key){
+      //       array[j+1]=array[j];
+      //       j=j-1;
+      //     }
+      //   array[j+1]=key;}
+      //   this.setState({arr:array});
+      // }
+
+      async InsertionSort() {
+        const array = [...this.state.arr];
+        var n = this.state.num;
+        for (let i = 1; i < n; i++) {
+          let key = array[i];
+          let j = i - 1;
+          while (j >= 0 && array[j] > key) {
+            array[j + 1] = array[j];
+            j = j - 1;
+          }
+          array[j + 1] = key;
+          this.setState({ arr: array, selected: i }); // Highlight the selected element
+          await new Promise(resolve => setTimeout(resolve, 5)); // Wait for 500 milliseconds
+        }
+        this.setState({ arr: array, selected: -1 }); // Clear selected element
+      }
+      
+      //Heap Sort
+      // HeapSort(array){
+      //   var N=array.length;
+      //   for(var i=Math.floor(N/2)-1;i>=0;i--)
+      //    this.heapify(array,N,i);
+      //   for(var i=N-1;i>0;i--){
+      //       var temp=array[0];
+      //       array[0]=array[i];
+      //       array[i]=temp;
+      //       this.heapify(array,i,0);
+      //   }  
+      //   console.log(array);
+      //   this.setState({arr:array});
+      // }
+      // heapify(array,N,i){
+      //   var largest=i;
+      //   var l=2*i+1;
+      //   var r=2*i+2;
+      //   if(l<N && array[l] >array[largest])
+      //   largest=l;
+      //   if(r<N && array[r] >array[largest])
+      //   largest=r;
+      //   if(largest!==i){
+      //       var swap=array[i];
+      //       array[i]=array[largest];
+      //       array[largest]=swap;
+      //       this.heapify(array,N,largest);
+      //   }
+      // }
+
+      async HeapSort(array) {
+        var N = array.length;
+        for (var i = Math.floor(N / 2) - 1; i >= 0; i--) {
+          await this.heapify(array, N, i);
+        }
+        for (var i = N - 1; i > 0; i--) {
+          // Swap the maximum element with the last element of the unsorted part of the array
+          var temp = array[0];
+          array[0] = array[i];
+          array[i] = temp;
+          this.setState({ arr: array, selected: i }); // Highlight the swapped element
+          await new Promise(resolve => setTimeout(resolve, 5)); // Wait for 500 milliseconds
+          await this.heapify(array, i, 0);
+        }
+        console.log(array);
+        this.setState({ arr: array, selected: -1 }); // Clear selected element
+      }
+      
+      async heapify(array, N, i) {
+        var largest = i;
+        var l = 2 * i + 1;
+        var r = 2 * i + 2;
+        if (l < N && array[l] > array[largest])
+          largest = l;
+        if (r < N && array[r] > array[largest])
+          largest = r;
+        if (largest !== i) {
+          var swap = array[i];
+          array[i] = array[largest];
+          array[largest] = swap;
+          this.setState({ arr: array, selected: largest }); // Highlight the swapped element
+          await new Promise(resolve => setTimeout(resolve, 5)); // Wait for 500 milliseconds
+          await this.heapify(array, N, largest);
+        } else {
+          this.setState({ arr: array, selected: i }); // Highlight the current element
+          await new Promise(resolve => setTimeout(resolve, 5)); // Wait for 500 milliseconds
+        }
+      }
+      
+   //Function to animate the sorting method
+   AnimateBars(){
+
+   }
+
+
+
+    // PrintArray() {
+    //    const copy=[];
+    //     for (let i = 0; i < this.state.arr.length; i++) {
+    //         // console.log( i);
+    //         copy.push(this.state.arr[i]);
+    //     }
+    //     console.log(copy);
+   
+    // }
+
+
+    // changeLength(){
+    //     this.length={items};
+    // }

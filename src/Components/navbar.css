@@ -1,0 +1,75 @@
+#navbar{
+    display: flex;
+    /* justify-content: center; */
+    /* border: 1px solid black; */
+    background-color: rgb(18, 20, 30);
+    color: rgb(243, 230, 242);
+    height: 70px;
+}
+#navbar div{
+   
+    padding: 10px;
+    /* border: 1px solid white; */
+}
+
+#abt{
+    font-size: large;
+    font-weight: bold;
+    margin-left: 5%;
+    line-height:50px;
+}
+#abt a{
+    font-size: large;
+    font-weight: bold;
+    margin-left: 5%;
+    line-height:50px;
+    color: white;
+    text-decoration: none;
+}
+#Home a{
+    font-size: large;
+    font-weight: bold;
+    margin-left: 50%;
+    line-height:50px;
+    color: white;
+    text-decoration: none;
+}
+#Home {
+    font-size: large;
+    font-weight: bold;
+    margin-left: 50%;
+    line-height:50px;
+    color: white;
+}
+input{
+    margin-top:2%;
+    border: 1px solid white;
+    border-radius: 10px;
+    height: 50px;
+    font-size: large;
+    margin-left: 100px;
+}
+input:focus{
+ outline: none;
+}
+#SV{
+    width: 20%;
+    font-size: x-large;
+    font-weight: bold;
+    background-color: #735ed9;
+   line-height: 20px;
+   font-family:'Segoe UI';
+}
+/* #Mode{
+    border-radius: 50%;
+   border: 3px solid white;
+   height: 60px;
+   width: 60px;
+   font-size:small;
+   margin-left: 8px;
+   margin-top: 2px;
+   font-weight: bold;
+   background-color: rgb(68, 8, 125);
+   color: white;
+  
+} */
