@@ -9,7 +9,7 @@ function Navbar() {
     
     <div>
         <nav id='navbar'>
-          <div id='SV'> <u> Sorting </u> <br />
+          <div id='SV'><u> Sorting </u> <br />
           <u>Visualizer</u></div>
          {/* <span><input type="number" value={number} onChange={handleInputChange} placeholder='Enter the number of bars you want'/></span> <button id='generate' onClick={handleGenerateClick}>START</button> */}
            <div id='Home'><Link to="/Home">Home</Link> </div>

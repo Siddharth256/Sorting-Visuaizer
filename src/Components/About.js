@@ -17,7 +17,7 @@ function About() {
                 <li>Node JS</li>
                 <li>React Router Dom</li>
             </ul>
-            <p>Github link:</p><a href="www.github.com">Sorting Visualizer</a>
+            <p>Github link:</p><a href="https://github.com/Siddharth256/Sorting-Visuaizer.github-io">Sorting Visualizer</a>
         </div>
     )
 }

@@ -26,7 +26,7 @@ export default class Generatebars extends React.Component {
     console.log("constructor");
   }
   async handleSort(sortType) {
-    const delay = 5;
+    const delay = 10;
     let sortedArr;
     if (sortType === 'selection') {
       sortedArr = await SelectionSort(this.state.arr, delay, newState => this.setState(newState));
