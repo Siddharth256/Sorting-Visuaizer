@@ -26,7 +26,7 @@ export default class Generatebars extends React.Component {
     console.log("constructor");
   }
   async handleSort(sortType) {
-    const delay = 10;
+    const delay = 5;
     let sortedArr;
     if (sortType === 'selection') {
       sortedArr = await SelectionSort(this.state.arr, delay, newState => this.setState(newState));
@@ -96,7 +96,7 @@ export default class Generatebars extends React.Component {
           <div className="bars">
             {this.state.arr.map((item, index) => (
               <div key={index} className="bar"
-              style={{ height: item + "px", color: "white", backgroundColor: this.state.colorchange ? this.state.color : 'red' }}>
+              style={{ height: item + "px" }}>
               </div>
             ))}
 
